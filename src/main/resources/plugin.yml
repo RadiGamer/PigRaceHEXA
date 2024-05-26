@@ -1,0 +1,14 @@
+name: PigRaceHEXA
+version: '${project.version}'
+main: org.hexa.pigracehexa.PigRaceHEXA
+api-version: '1.20'
+commands:
+  pigstart:
+    usage: /<command>
+    description: Spawnea los cerdos
+  pigstop:
+    usage: /<command>
+    description: Despawnea a los cerdos
+  pigcheckpoint:
+    usage: /<command>
+    description: Crea checkpoints
