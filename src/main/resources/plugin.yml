@@ -6,9 +6,12 @@ commands:
   pigstart:
     usage: /<command>
     description: Spawnea los cerdos
+    permission: pig.start
   pigstop:
     usage: /<command>
     description: Despawnea a los cerdos
+    permission: pig.stop
   pigcheckpoint:
     usage: /<command>
     description: Crea checkpoints
+    permission: pig.checkpoint

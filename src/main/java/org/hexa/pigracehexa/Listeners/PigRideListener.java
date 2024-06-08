@@ -24,6 +24,7 @@ public class PigRideListener implements Listener {
         Player player = event.getPlayer();
         if (player.getVehicle() instanceof Pig) {
             pigManager.respawnPigAtCheckpoint(player);
+            event.setCancelled(true);
         }
     }
 

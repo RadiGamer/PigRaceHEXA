@@ -16,10 +16,10 @@ public class CheckpointManager {
     public void createCheckpoint(Player player) {
         Location location = player.getLocation();
         Interaction interaction = (Interaction) player.getWorld().spawnEntity(location, EntityType.INTERACTION);
-        interaction.setInteractionWidth(10);  // Width of the wall
-        interaction.setInteractionHeight(5); // Height of the wall
+        interaction.setInteractionWidth(1);  // Width of the wall
+        interaction.setInteractionHeight(1); // Height of the wall
         interaction.addScoreboardTag("checkpoint");
-        interaction.setPersistent(true);
+        interaction.setResponsive(false);
     }
 
     public void updateCheckpoint(Player player, Location location) {

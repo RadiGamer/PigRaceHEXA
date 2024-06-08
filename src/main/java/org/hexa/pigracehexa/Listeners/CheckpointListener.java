@@ -2,6 +2,8 @@ package org.hexa.pigracehexa.Listeners;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Interaction;
 import org.bukkit.entity.Pig;
@@ -33,7 +35,7 @@ public class CheckpointListener implements Listener {
         UUID playerId = player.getUniqueId();
         Map<UUID, Boolean> checkpoints = playerCheckpointStatus.getOrDefault(playerId, new HashMap<>());
 
-        for (Entity entity : player.getNearbyEntities(1, 5, 10)) {  // Near a thin wall
+        for (Entity entity : player.getNearbyEntities(1, 5, 15)) {  // Near a thin wall
             if (entity instanceof Interaction && entity.getScoreboardTags().contains("checkpoint") && player.getVehicle() instanceof org.bukkit.entity.Pig) {
                 UUID checkpointId = entity.getUniqueId();
                 if (!checkpoints.getOrDefault(checkpointId, false)) {
@@ -41,6 +43,7 @@ public class CheckpointListener implements Listener {
                     checkpointManager.updateCheckpoint(player, checkpointLocation);
                     pigManager.updatePlayerCheckpoint(player, checkpointLocation);
                     player.sendMessage(ChatColor.GOLD + "Haz alcanzado un nuevo punto de control.");
+                    player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, SoundCategory.MASTER,1,1);
                     checkpoints.put(checkpointId, true);
                 }
             }
